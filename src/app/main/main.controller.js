@@ -1,32 +1,45 @@
+'use strict';
+
+const _interval = new WeakMap();
+
 export class MainController {
-  constructor ($timeout, webDevTec, toastr) {
-    'ngInject';
+  constructor($interval) {
+    _interval.set(this, $interval);
 
-    this.awesomeThings = [];
-    this.classAnimation = '';
-    this.creationDate = 1467139356619;
-    this.toastr = toastr;
-
-    this.activate($timeout, webDevTec);
+    this.minLeft = 25;
+    this.timeLeft = 1000 * 60 * this.minLeft; //25 minutes
+    this.timerStarted = false;
   }
 
-  activate($timeout, webDevTec) {
-    this.getWebDevTec(webDevTec);
-    $timeout(() => {
-      this.classAnimation = 'rubberBand';
-    }, 4000);
+  toggleTimer() {
+    if (this.timerStarted) {
+      this.stopTimer();
+    } else {
+      this.startTimer();
+    }
+
+    this.timerStarted = !this.timerStarted;
   }
 
-  getWebDevTec(webDevTec) {
-    this.awesomeThings = webDevTec.getTec();
-
-    angular.forEach(this.awesomeThings, (awesomeThing) => {
-      awesomeThing.rank = Math.random();
-    });
+  stopTimer() {
+    _interval.get(this).cancel(this.timer)
   }
 
-  showToastr() {
-    this.toastr.info('Fork <a href="https://github.com/Swiip/generator-gulp-angular" target="_blank"><b>generator-gulp-angular</b></a>');
-    this.classAnimation = '';
+  startTimer() {
+    if (!this.timerStarted) {
+      this.timer = _interval.get(this)(() => {
+        this.timeLeft = this.timeLeft >= 1000 ? this.timeLeft - 1000 : 0;
+        if (this.timeLeft <= 0) {
+          _interval.get(this).cancel(this.timer);
+        }
+      }, 1000)
+    }
+  }
+
+  resetTimer() {
+    this.minLeft = 25;
+    this.timeLeft = 1000 * 60 * this.minLeft;
   }
 }
+
+MainController.$inject = ['$interval'];
