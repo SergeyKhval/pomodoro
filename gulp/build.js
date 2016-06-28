@@ -3,6 +3,8 @@
 var path = require('path');
 var gulp = require('gulp');
 var conf = require('./conf');
+var swPrecache = require('sw-precache');
+var ghPages = require('gh-pages');
 
 var $ = require('gulp-load-plugins')({
   pattern: ['gulp-*', 'main-bower-files', 'uglify-save-license', 'del']
@@ -94,3 +96,18 @@ gulp.task('clean', function () {
 });
 
 gulp.task('build', ['html', 'fonts', 'other']);
+
+gulp.task('generate-service-worker', function(callback) {
+
+  var rootDir = 'dist';
+
+  swPrecache.write(path.join(rootDir, 'service-worker.js'), {
+    staticFileGlobs: [rootDir + '/**/*.{js,html,css,png,jpg,gif,svg,eot,ttf,woff}'],
+    stripPrefix: rootDir,
+    replacePrefix: '/pomodoro'
+  }, callback);
+});
+
+gulp.task('gh-pages', function(callback) {
+  ghPages.publish(path.join(__dirname, '../dist'), callback);
+});
