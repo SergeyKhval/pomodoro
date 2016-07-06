@@ -29,7 +29,7 @@
 
 
 /* eslint-disable quotes, comma-spacing */
-var PrecacheConfig = [["/pomodoro/fonts/glyphicons-halflings-regular.eot","f4769f9bdb7466be65088239c12046d1"],["/pomodoro/fonts/glyphicons-halflings-regular.svg","89889688147bd7575d6327160d64e760"],["/pomodoro/fonts/glyphicons-halflings-regular.ttf","e18bbf611f2a2e43afc071aa2f4e1512"],["/pomodoro/fonts/glyphicons-halflings-regular.woff","fa2772327f55d8198301fdb8bcfc8158"],["/pomodoro/index.html","eaf823dcd3d05c55e1e4d1572c67e1e2"],["/pomodoro/scripts/app-ec287b4c13.js","483729a05c8080f7941a0827c47c9e27"],["/pomodoro/scripts/vendor-67924e79e4.js","c6ec1b1ff1992304009f4de5d9aba802"],["/pomodoro/styles/app-bedd217046.css","bedd21704676ba80d01063252e4e78f7"],["/pomodoro/styles/vendor-9472fa3abf.css","9472fa3abf45eb2fb094f447857439bf"]];
+var PrecacheConfig = [["/pomodoro/assets/apple-iphone-smartphone-desk.jpg","5fff43693a6407e1d2167fea168b4a5b"],["/pomodoro/fonts/glyphicons-halflings-regular.eot","f4769f9bdb7466be65088239c12046d1"],["/pomodoro/fonts/glyphicons-halflings-regular.svg","f721466883998665b87923b92dea655b"],["/pomodoro/fonts/glyphicons-halflings-regular.ttf","e18bbf611f2a2e43afc071aa2f4e1512"],["/pomodoro/fonts/glyphicons-halflings-regular.woff","fa2772327f55d8198301fdb8bcfc8158"],["/pomodoro/index.html","230e3f7f4e1a3f80287487b662eaf84d"],["/pomodoro/scripts/app-ec287b4c13.js","483729a05c8080f7941a0827c47c9e27"],["/pomodoro/scripts/vendor-c0a3f281cd.js","9b408a2b5d11f80fa7548138867a44e2"],["/pomodoro/styles/app-506845d73f.css","506845d73f8d2589045c9a52a66ee2c0"],["/pomodoro/styles/vendor-04c8db0ab4.css","04c8db0ab4a235e560f91b1cfd174f7a"]];
 /* eslint-enable quotes, comma-spacing */
 var CacheNamePrefix = 'sw-precache-v1--' + (self.registration ? self.registration.scope : '') + '-';
 
